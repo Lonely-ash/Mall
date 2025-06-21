@@ -5,10 +5,10 @@ feign:
     enabled: true # 开启OKHttp连接池支持
   sentinel:
     enabled: true
-hm:
+mall:
   swagger:
     title: 购物车服务接口文档
-    package: com.mall.cart.controller
+    package: com.lonelyash.cart.controller
   db:
     database: mall-cart
 spring:

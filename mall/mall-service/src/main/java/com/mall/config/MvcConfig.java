@@ -1,8 +1,8 @@
-package com.mall.config;
+package com.lonelyash.config;
 
 import cn.hutool.core.collection.CollUtil;
-import com.mall.interceptor.LoginInterceptor;
-import com.mall.utils.JwtTool;
+import com.lonelyash.interceptor.LoginInterceptor;
+import com.lonelyash.utils.JwtTool;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;

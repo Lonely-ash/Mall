@@ -1,8 +1,8 @@
-package com.mall.service.impl;
+package com.lonelyash.service.impl;
 
-import com.mall.domain.po.OrderDetail;
-import com.mall.mapper.OrderDetailMapper;
-import com.mall.service.IOrderDetailService;
+import com.lonelyash.domain.po.OrderDetail;
+import com.lonelyash.mapper.OrderDetailMapper;
+import com.lonelyash.service.IOrderDetailService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

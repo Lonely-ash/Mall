@@ -1,7 +1,7 @@
-package com.mall.interceptor;
+package com.lonelyash.interceptor;
 
-import com.mall.common.utils.UserContext;
-import com.mall.utils.JwtTool;
+import com.lonelyash.common.utils.UserContext;
+import com.lonelyash.utils.JwtTool;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.servlet.HandlerInterceptor;
 

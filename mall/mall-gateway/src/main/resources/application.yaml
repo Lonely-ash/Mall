@@ -1,10 +1,10 @@
 server:
   port: 8080
-hm:
+mall:
   jwt:
-    location: classpath:hmall.jks
-    alias: hmall
-    password: hmall123
+    location: classpath:mall.jks
+    alias: mall
+    password: mall123
     tokenTTL: 30m
   auth:
     excludePaths:

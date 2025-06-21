@@ -1,6 +1,6 @@
-package com.mall.mapper;
+package com.lonelyash.mapper;
 
-import com.mall.domain.po.OrderDetail;
+import com.lonelyash.domain.po.OrderDetail;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

@@ -1,8 +1,8 @@
-package com.mall.service.impl;
+package com.lonelyash.service.impl;
 
-import com.mall.domain.dto.OrderDetailDTO;
-import com.mall.service.IItemService;
-import com.mall.utils.JwtTool;
+import com.lonelyash.domain.dto.OrderDetailDTO;
+import com.lonelyash.service.IItemService;
+import com.lonelyash.utils.JwtTool;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

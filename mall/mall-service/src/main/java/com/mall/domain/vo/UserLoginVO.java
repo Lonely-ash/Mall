@@ -1,4 +1,4 @@
-package com.mall.domain.vo;
+package com.lonelyash.domain.vo;
 
 import lombok.Data;
 

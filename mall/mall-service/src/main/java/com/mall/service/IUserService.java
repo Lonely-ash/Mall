@@ -1,9 +1,9 @@
-package com.mall.service;
+package com.lonelyash.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.mall.domain.dto.LoginFormDTO;
-import com.mall.domain.po.User;
-import com.mall.domain.vo.UserLoginVO;
+import com.lonelyash.domain.dto.LoginFormDTO;
+import com.lonelyash.domain.po.User;
+import com.lonelyash.domain.vo.UserLoginVO;
 
 /**
  * <p>

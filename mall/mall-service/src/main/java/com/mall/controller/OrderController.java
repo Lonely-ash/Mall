@@ -1,9 +1,9 @@
-package com.mall.controller;
+package com.lonelyash.controller;
 
-import com.mall.common.utils.BeanUtils;
-import com.mall.domain.dto.OrderFormDTO;
-import com.mall.domain.vo.OrderVO;
-import com.mall.service.IOrderService;
+import com.lonelyash.common.utils.BeanUtils;
+import com.lonelyash.domain.dto.OrderFormDTO;
+import com.lonelyash.domain.vo.OrderVO;
+import com.lonelyash.service.IOrderService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;

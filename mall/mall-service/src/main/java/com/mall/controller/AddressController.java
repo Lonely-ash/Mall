@@ -1,13 +1,13 @@
-package com.mall.controller;
+package com.lonelyash.controller;
 
 
-import com.mall.common.exception.BadRequestException;
-import com.mall.common.utils.BeanUtils;
-import com.mall.common.utils.CollUtils;
-import com.mall.common.utils.UserContext;
-import com.mall.domain.dto.AddressDTO;
-import com.mall.domain.po.Address;
-import com.mall.service.IAddressService;
+import com.lonelyash.common.exception.BadRequestException;
+import com.lonelyash.common.utils.BeanUtils;
+import com.lonelyash.common.utils.CollUtils;
+import com.lonelyash.common.utils.UserContext;
+import com.lonelyash.domain.dto.AddressDTO;
+import com.lonelyash.domain.po.Address;
+import com.lonelyash.service.IAddressService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;

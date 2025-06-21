@@ -1,9 +1,9 @@
-package com.mall.service;
+package com.lonelyash.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.mall.domain.dto.CartFormDTO;
-import com.mall.domain.po.Cart;
-import com.mall.domain.vo.CartVO;
+import com.lonelyash.domain.dto.CartFormDTO;
+import com.lonelyash.domain.po.Cart;
+import com.lonelyash.domain.vo.CartVO;
 
 import java.util.Collection;
 import java.util.List;

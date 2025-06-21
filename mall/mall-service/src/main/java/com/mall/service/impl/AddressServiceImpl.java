@@ -1,8 +1,8 @@
-package com.mall.service.impl;
+package com.lonelyash.service.impl;
 
-import com.mall.domain.po.Address;
-import com.mall.mapper.AddressMapper;
-import com.mall.service.IAddressService;
+import com.lonelyash.domain.po.Address;
+import com.lonelyash.mapper.AddressMapper;
+import com.lonelyash.service.IAddressService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

@@ -1,14 +1,14 @@
-package com.mall.controller;
+package com.lonelyash.controller;
 
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.mall.common.domain.PageDTO;
-import com.mall.common.domain.PageQuery;
-import com.mall.common.utils.BeanUtils;
-import com.mall.domain.dto.ItemDTO;
-import com.mall.domain.dto.OrderDetailDTO;
-import com.mall.domain.po.Item;
-import com.mall.service.IItemService;
+import com.lonelyash.common.domain.PageDTO;
+import com.lonelyash.common.domain.PageQuery;
+import com.lonelyash.common.utils.BeanUtils;
+import com.lonelyash.domain.dto.ItemDTO;
+import com.lonelyash.domain.dto.OrderDetailDTO;
+import com.lonelyash.domain.po.Item;
+import com.lonelyash.service.IItemService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;

@@ -1,6 +1,6 @@
-package com.mall.service;
+package com.lonelyash.service;
 
-import com.mall.domain.po.Address;
+import com.lonelyash.domain.po.Address;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

@@ -1,4 +1,4 @@
-package com.mall.domain.vo;
+package com.lonelyash.domain.vo;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

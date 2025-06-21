@@ -1,8 +1,8 @@
 server:
   port: 8081
-hm:
+mall:
   swagger:
     title: 商品服务接口文档
-    package: com.mall.item.controller
+    package: com.lonelyash.item.controller
   db:
-    database: hm-item
+    database: mall-item

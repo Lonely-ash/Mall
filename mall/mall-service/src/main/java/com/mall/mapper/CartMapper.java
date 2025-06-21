@@ -1,6 +1,6 @@
-package com.mall.mapper;
+package com.lonelyash.mapper;
 
-import com.mall.domain.po.Cart;
+import com.lonelyash.domain.po.Cart;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Update;

@@ -1,8 +1,8 @@
-package com.mall.service;
+package com.lonelyash.service;
 
-import com.mall.domain.dto.ItemDTO;
-import com.mall.domain.dto.OrderDetailDTO;
-import com.mall.domain.po.Item;
+import com.lonelyash.domain.dto.ItemDTO;
+import com.lonelyash.domain.dto.OrderDetailDTO;
+import com.lonelyash.domain.po.Item;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.Collection;

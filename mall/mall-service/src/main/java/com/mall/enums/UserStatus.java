@@ -1,7 +1,7 @@
-package com.mall.enums;
+package com.lonelyash.enums;
 
 import com.baomidou.mybatisplus.annotation.EnumValue;
-import com.mall.common.exception.BadRequestException;
+import com.lonelyash.common.exception.BadRequestException;
 import lombok.Getter;
 
 @Getter

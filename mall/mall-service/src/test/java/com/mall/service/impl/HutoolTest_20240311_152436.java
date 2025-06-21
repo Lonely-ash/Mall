@@ -1,4 +1,4 @@
-package com.mall.service.impl;
+package com.lonelyash.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import lombok.AllArgsConstructor;

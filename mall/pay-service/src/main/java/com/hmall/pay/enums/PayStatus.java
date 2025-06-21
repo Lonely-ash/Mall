@@ -1,4 +1,4 @@
-package com.mall.pay.enums;
+package com.lonelyash.pay.enums;
 
 import lombok.Getter;
 

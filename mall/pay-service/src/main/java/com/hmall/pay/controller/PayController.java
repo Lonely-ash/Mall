@@ -1,14 +1,14 @@
-package com.mall.pay.controller;
+package com.lonelyash.pay.controller;
 
-import com.mall.api.dto.PayOrderDTO;
-import com.mall.common.exception.BizIllegalException;
-import com.mall.common.utils.BeanUtils;
-import com.mall.pay.domain.dto.PayApplyDTO;
-import com.mall.pay.domain.dto.PayOrderFormDTO;
-import com.mall.pay.domain.po.PayOrder;
-import com.mall.pay.domain.vo.PayOrderVO;
-import com.mall.pay.enums.PayType;
-import com.mall.pay.service.IPayOrderService;
+import com.lonelyash.api.dto.PayOrderDTO;
+import com.lonelyash.common.exception.BizIllegalException;
+import com.lonelyash.common.utils.BeanUtils;
+import com.lonelyash.pay.domain.dto.PayApplyDTO;
+import com.lonelyash.pay.domain.dto.PayOrderFormDTO;
+import com.lonelyash.pay.domain.po.PayOrder;
+import com.lonelyash.pay.domain.vo.PayOrderVO;
+import com.lonelyash.pay.enums.PayType;
+import com.lonelyash.pay.service.IPayOrderService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;

@@ -1,7 +1,7 @@
-package com.mall.mapper;
+package com.lonelyash.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.mall.domain.po.User;
+import com.lonelyash.domain.po.User;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Update;
 

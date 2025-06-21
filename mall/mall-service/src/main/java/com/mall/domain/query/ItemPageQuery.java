@@ -1,6 +1,6 @@
-package com.mall.domain.query;
+package com.lonelyash.domain.query;
 
-import com.mall.common.domain.PageQuery;
+import com.lonelyash.common.domain.PageQuery;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

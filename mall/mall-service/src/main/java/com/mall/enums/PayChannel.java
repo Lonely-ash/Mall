@@ -1,4 +1,4 @@
-package com.mall.enums;
+package com.lonelyash.enums;
 
 import cn.hutool.core.util.StrUtil;
 import lombok.Getter;

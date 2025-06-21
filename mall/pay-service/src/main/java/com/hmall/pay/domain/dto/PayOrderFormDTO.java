@@ -1,4 +1,4 @@
-package com.mall.pay.domain.dto;
+package com.lonelyash.pay.domain.dto;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

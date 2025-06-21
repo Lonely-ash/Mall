@@ -1,10 +1,10 @@
-package com.mall.controller;
+package com.lonelyash.controller;
 
-import com.mall.common.exception.BizIllegalException;
-import com.mall.domain.dto.PayApplyDTO;
-import com.mall.domain.dto.PayOrderFormDTO;
-import com.mall.enums.PayType;
-import com.mall.service.IPayOrderService;
+import com.lonelyash.common.exception.BizIllegalException;
+import com.lonelyash.domain.dto.PayApplyDTO;
+import com.lonelyash.domain.dto.PayOrderFormDTO;
+import com.lonelyash.enums.PayType;
+import com.lonelyash.service.IPayOrderService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;

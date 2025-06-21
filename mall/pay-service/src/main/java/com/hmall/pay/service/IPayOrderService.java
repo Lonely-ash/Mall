@@ -1,9 +1,9 @@
-package com.mall.pay.service;
+package com.lonelyash.pay.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.mall.pay.domain.dto.PayApplyDTO;
-import com.mall.pay.domain.dto.PayOrderFormDTO;
-import com.mall.pay.domain.po.PayOrder;
+import com.lonelyash.pay.domain.dto.PayApplyDTO;
+import com.lonelyash.pay.domain.dto.PayOrderFormDTO;
+import com.lonelyash.pay.domain.po.PayOrder;
 
 
 /**

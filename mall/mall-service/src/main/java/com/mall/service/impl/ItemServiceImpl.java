@@ -1,13 +1,13 @@
-package com.mall.service.impl;
+package com.lonelyash.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.mall.common.exception.BizIllegalException;
-import com.mall.common.utils.BeanUtils;
-import com.mall.domain.dto.ItemDTO;
-import com.mall.domain.dto.OrderDetailDTO;
-import com.mall.domain.po.Item;
-import com.mall.mapper.ItemMapper;
-import com.mall.service.IItemService;
+import com.lonelyash.common.exception.BizIllegalException;
+import com.lonelyash.common.utils.BeanUtils;
+import com.lonelyash.domain.dto.ItemDTO;
+import com.lonelyash.domain.dto.OrderDetailDTO;
+import com.lonelyash.domain.po.Item;
+import com.lonelyash.mapper.ItemMapper;
+import com.lonelyash.service.IItemService;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
@@ -25,7 +25,7 @@ public class ItemServiceImpl extends ServiceImpl<ItemMapper, Item> implements II
 
     @Override
     public void deductStock(List<OrderDetailDTO> items) {
-        String sqlStatement = "com.mall.mapper.ItemMapper.updateStock";
+        String sqlStatement = "com.lonelyash.mapper.ItemMapper.updateStock";
         boolean r = false;
         try {
             r = executeBatch(items, (sqlSession, entity) -> sqlSession.update(sqlStatement, entity));

@@ -1,7 +1,7 @@
-package com.mall.pay.mapper;
+package com.lonelyash.pay.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.mall.pay.domain.po.PayOrder;
+import com.lonelyash.pay.domain.po.PayOrder;
 
 
 /**

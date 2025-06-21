@@ -1,20 +1,19 @@
-package com.mall.service.impl;
+package com.lonelyash.service.impl;
 
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.mall.common.exception.BadRequestException;
-import com.mall.common.exception.BizIllegalException;
-import com.mall.common.utils.BeanUtils;
-import com.mall.common.utils.CollUtils;
-import com.mall.common.utils.UserContext;
-import com.mall.domain.dto.CartFormDTO;
-import com.mall.domain.dto.ItemDTO;
-import com.mall.domain.po.Cart;
-import com.mall.domain.vo.CartVO;
-import com.mall.mapper.CartMapper;
-import com.mall.service.ICartService;
-import com.mall.service.IItemService;
+import com.lonelyash.common.exception.BizIllegalException;
+import com.lonelyash.common.utils.BeanUtils;
+import com.lonelyash.common.utils.CollUtils;
+import com.lonelyash.common.utils.UserContext;
+import com.lonelyash.domain.dto.CartFormDTO;
+import com.lonelyash.domain.dto.ItemDTO;
+import com.lonelyash.domain.po.Cart;
+import com.lonelyash.domain.vo.CartVO;
+import com.lonelyash.mapper.CartMapper;
+import com.lonelyash.service.ICartService;
+import com.lonelyash.service.IItemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

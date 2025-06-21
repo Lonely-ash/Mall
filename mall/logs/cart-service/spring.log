@@ -1,4 +1,4 @@
-16:23:28:065  INFO 4864 --- [main] com.mall.cart.CartApplication           : The following 1 profile is active: "local"
+16:23:28:065  INFO 4864 --- [main] com.lonelyash.cart.CartApplication           : The following 1 profile is active: "local"
 16:23:29:205  INFO 4864 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=f6aca30b-6d27-3178-bfe1-0aba914f2c3f
 16:23:29:258  INFO 4864 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'io.seata.spring.boot.autoconfigure.SeataCoreAutoConfiguration' of type [io.seata.spring.boot.autoconfigure.SeataCoreAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
 16:23:29:258  INFO 4864 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'springApplicationContextProvider' of type [io.seata.spring.boot.autoconfigure.provider.SpringApplicationContextProvider] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
@@ -26,16 +26,16 @@
 16:23:29:749  INFO 4864 --- [main] com.alibaba.nacos.common.remote.client   : [9fdaf522-6ad7-4a9e-8b4e-24cb1d1b6c92] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$472/0x0000000800423c40
 16:23:29:749  INFO 4864 --- [com.alibaba.nacos.client.remote.worker] com.alibaba.nacos.common.remote.client   : [9fdaf522-6ad7-4a9e-8b4e-24cb1d1b6c92] Notify connected event to listeners.
 16:23:29:789  INFO 4864 --- [main] i.s.c.r.netty.NettyClientChannelManager  : will connect to 192.168.229.129:8099
-16:23:30:342  INFO 4864 --- [main] i.s.core.rpc.netty.NettyPoolableFactory  : NettyPool create channel to transactionRole:TMROLE,address:192.168.229.129:8099,msg:< RegisterTMRequest{applicationId='cart-service', transactionServiceGroup='hmall'} >
+16:23:30:342  INFO 4864 --- [main] i.s.core.rpc.netty.NettyPoolableFactory  : NettyPool create channel to transactionRole:TMROLE,address:192.168.229.129:8099,msg:< RegisterTMRequest{applicationId='cart-service', transactionServiceGroup='mallall'} >
 16:23:30:373  INFO 4864 --- [nacos-grpc-client-executor-6] com.alibaba.nacos.common.remote.client   : [9fdaf522-6ad7-4a9e-8b4e-24cb1d1b6c92] Receive server push request, request = NotifySubscriberRequest, requestId = 8
 16:23:30:377  INFO 4864 --- [nacos-grpc-client-executor-6] com.alibaba.nacos.common.remote.client   : [9fdaf522-6ad7-4a9e-8b4e-24cb1d1b6c92] Ack server push request, request = NotifySubscriberRequest, requestId = 8
 16:23:31:060  INFO 4864 --- [main] i.s.c.rpc.netty.TmNettyRemotingClient    : register TM success. client version:1.5.2, server version:1.5.2,channel:[id: 0x2c5b85cf, L:/192.168.229.1:12787 - R:/192.168.229.129:8099]
 16:23:31:064  INFO 4864 --- [main] i.s.core.rpc.netty.NettyPoolableFactory  : register success, cost 57 ms, version:1.5.2,role:TMROLE,channel:[id: 0x2c5b85cf, L:/192.168.229.1:12787 - R:/192.168.229.129:8099]
-16:23:31:065  INFO 4864 --- [main] i.s.s.a.GlobalTransactionScanner         : Transaction Manager Client is initialized. applicationId[cart-service] txServiceGroup[hmall]
+16:23:31:065  INFO 4864 --- [main] i.s.s.a.GlobalTransactionScanner         : Transaction Manager Client is initialized. applicationId[cart-service] txServiceGroup[mallall]
 16:23:31:076  INFO 4864 --- [main] io.seata.rm.datasource.AsyncWorker       : Async Commit Buffer Limit: 10000
 16:23:31:077  INFO 4864 --- [main] i.s.rm.datasource.xa.ResourceManagerXA   : ResourceManagerXA init ...
 16:23:31:096  INFO 4864 --- [main] i.s.core.rpc.netty.NettyClientBootstrap  : NettyClientBootstrap has started
-16:23:31:096  INFO 4864 --- [main] i.s.s.a.GlobalTransactionScanner         : Resource Manager is initialized. applicationId[cart-service] txServiceGroup[hmall]
+16:23:31:096  INFO 4864 --- [main] i.s.s.a.GlobalTransactionScanner         : Resource Manager is initialized. applicationId[cart-service] txServiceGroup[mallall]
 16:23:31:096  INFO 4864 --- [main] i.s.s.a.GlobalTransactionScanner         : Global Transaction Clients are initialized. 
 16:23:31:098  INFO 4864 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'io.seata.spring.boot.autoconfigure.SeataDataSourceAutoConfiguration' of type [io.seata.spring.boot.autoconfigure.SeataDataSourceAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
 16:23:31:301  INFO 4864 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'com.alibaba.cloud.seata.feign.SeataFeignClientAutoConfiguration$FeignBeanPostProcessorConfiguration' of type [com.alibaba.cloud.seata.feign.SeataFeignClientAutoConfiguration$FeignBeanPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
@@ -49,8 +49,8 @@
 16:23:32:437  INFO 4864 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
 16:23:32:746  INFO 4864 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
 16:23:32:832  INFO 4864 --- [main] i.s.c.r.netty.NettyClientChannelManager  : will connect to 192.168.229.129:8099
-16:23:32:832  INFO 4864 --- [main] i.s.c.rpc.netty.RmNettyRemotingClient    : RM will register :jdbc:mysql://192.168.229.129:3306/hm-cart
-16:23:32:833  INFO 4864 --- [main] i.s.core.rpc.netty.NettyPoolableFactory  : NettyPool create channel to transactionRole:RMROLE,address:192.168.229.129:8099,msg:< RegisterRMRequest{resourceIds='jdbc:mysql://192.168.229.129:3306/hm-cart', applicationId='cart-service', transactionServiceGroup='hmall'} >
+16:23:32:832  INFO 4864 --- [main] i.s.c.rpc.netty.RmNettyRemotingClient    : RM will register :jdbc:mysql://192.168.229.129:3306/mall-cart
+16:23:32:833  INFO 4864 --- [main] i.s.core.rpc.netty.NettyPoolableFactory  : NettyPool create channel to transactionRole:RMROLE,address:192.168.229.129:8099,msg:< RegisterRMRequest{resourceIds='jdbc:mysql://192.168.229.129:3306/mall-cart', applicationId='cart-service', transactionServiceGroup='mallall'} >
 16:23:32:851  INFO 4864 --- [main] i.s.c.rpc.netty.RmNettyRemotingClient    : register RM success. client version:1.5.2, server version:1.5.2,channel:[id: 0x1ecad0c8, L:/192.168.229.1:12802 - R:/192.168.229.129:8099]
 16:23:32:851  INFO 4864 --- [main] i.s.core.rpc.netty.NettyPoolableFactory  : register success, cost 14 ms, version:1.5.2,role:RMROLE,channel:[id: 0x1ecad0c8, L:/192.168.229.1:12802 - R:/192.168.229.129:8099]
 16:23:34:247  INFO 4864 --- [main] c.a.c.sentinel.SentinelWebMvcConfigurer  : [Sentinel Starter] register SentinelWebInterceptor with urlPatterns: [/**].
@@ -73,8 +73,8 @@
 16:23:38:196  INFO 4864 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
 16:23:38:213  INFO 4864 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
 16:23:38:279  INFO 4864 --- [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [192.168.229.129:5672]
-16:23:38:304  INFO 4864 --- [main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#4922dc84:0/SimpleConnection@2d094add [delegate=amqp://hmall@192.168.229.129:5672//hmall, localPort= 12910]
-16:23:38:354  INFO 4864 --- [main] com.mall.cart.CartApplication           : Started CartApplication in 15.417 seconds (JVM running for 16.687)
+16:23:38:304  INFO 4864 --- [main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#4922dc84:0/SimpleConnection@2d094add [delegate=amqp://mallall@192.168.229.129:5672//mallall, localPort= 12910]
+16:23:38:354  INFO 4864 --- [main] com.lonelyash.cart.CartApplication           : Started CartApplication in 15.417 seconds (JVM running for 16.687)
 16:23:38:358  INFO 4864 --- [main] c.a.c.n.refresh.NacosContextRefresher    : [Nacos Config] Listening config: dataId=cart-service, group=DEFAULT_GROUP
 16:23:38:360  INFO 4864 --- [main] c.a.c.n.refresh.NacosContextRefresher    : [Nacos Config] Listening config: dataId=cart-service.yaml, group=DEFAULT_GROUP
 16:23:38:360  INFO 4864 --- [main] c.a.c.n.refresh.NacosContextRefresher    : [Nacos Config] Listening config: dataId=cart-service-local.yaml, group=DEFAULT_GROUP
@@ -90,30 +90,30 @@
 16:26:46:991 DEBUG 4864 --- [http-nio-8082-exec-2] c.h.cart.mapper.CartMapper.selectCount   : ==>  Preparing: SELECT COUNT( * ) FROM cart WHERE (user_id = ?)
 16:26:46:991 DEBUG 4864 --- [http-nio-8082-exec-2] c.h.cart.mapper.CartMapper.selectCount   : ==> Parameters: 1(Long)
 16:26:46:993 DEBUG 4864 --- [http-nio-8082-exec-2] c.h.cart.mapper.CartMapper.selectCount   : <==      Total: 1
-16:26:47:027 DEBUG 4864 --- [http-nio-8082-exec-2] mapper.com.mall.cart.CartMapper.insert  : ==>  Preparing: INSERT INTO cart ( user_id, item_id, name, spec, price, image ) VALUES ( ?, ?, ?, ?, ?, ? )
-16:26:47:027 DEBUG 4864 --- [http-nio-8082-exec-2] mapper.com.mall.cart.CartMapper.insert  : ==> Parameters: 1(Long), 5284203(Long), 华为 HUAWEI Mate 10 6GB+128GB 香槟金 移动联通电信4G手机 双卡双待(String), {"颜色": "槟色", "选择内存": "128GB"}(String), 429400(Integer), https://m.360buyimg.com/mobilecms/s720x720_jfs/t10414/363/1280355182/335902/18c2b152/59ded64fNfdb4e9da.jpg!q70.jpg.webp(String)
-16:26:47:042 DEBUG 4864 --- [http-nio-8082-exec-2] mapper.com.mall.cart.CartMapper.insert  : <==    Updates: 1
+16:26:47:027 DEBUG 4864 --- [http-nio-8082-exec-2] mapper.com.lonelyash.cart.CartMapper.insert  : ==>  Preparing: INSERT INTO cart ( user_id, item_id, name, spec, price, image ) VALUES ( ?, ?, ?, ?, ?, ? )
+16:26:47:027 DEBUG 4864 --- [http-nio-8082-exec-2] mapper.com.lonelyash.cart.CartMapper.insert  : ==> Parameters: 1(Long), 5284203(Long), 华为 HUAWEI Mate 10 6GB+128GB 香槟金 移动联通电信4G手机 双卡双待(String), {"颜色": "槟色", "选择内存": "128GB"}(String), 429400(Integer), https://m.360buyimg.com/mobilecms/s720x720_jfs/t10414/363/1280355182/335902/18c2b152/59ded64fNfdb4e9da.jpg!q70.jpg.webp(String)
+16:26:47:042 DEBUG 4864 --- [http-nio-8082-exec-2] mapper.com.lonelyash.cart.CartMapper.insert  : <==    Updates: 1
 16:26:47:146 DEBUG 4864 --- [http-nio-8082-exec-3] c.h.cart.mapper.CartMapper.selectList    : ==>  Preparing: SELECT id,user_id,item_id,num,name,spec,price,image,create_time,update_time FROM cart WHERE (user_id = ?)
 16:26:47:146 DEBUG 4864 --- [http-nio-8082-exec-3] c.h.cart.mapper.CartMapper.selectList    : ==> Parameters: 1(Long)
 16:26:47:157 DEBUG 4864 --- [http-nio-8082-exec-3] c.h.cart.mapper.CartMapper.selectList    : <==      Total: 1
-16:26:47:162 DEBUG 4864 --- [http-nio-8082-exec-3] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds] ---> GET http://item-service/items?ids=5284203 HTTP/1.1
-16:26:47:163 DEBUG 4864 --- [http-nio-8082-exec-3] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds] user-info: 1
-16:26:47:163 DEBUG 4864 --- [http-nio-8082-exec-3] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds] ---> END HTTP (0-byte body)
-16:26:47:330 DEBUG 4864 --- [http-nio-8082-exec-3] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds] <--- HTTP/1.1 200  (167ms)
-16:26:47:330 DEBUG 4864 --- [http-nio-8082-exec-3] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds] connection: keep-alive
-16:26:47:330 DEBUG 4864 --- [http-nio-8082-exec-3] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds] content-type: application/json
-16:26:47:330 DEBUG 4864 --- [http-nio-8082-exec-3] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds] date: Thu, 10 Oct 2024 08:26:47 GMT
-16:26:47:330 DEBUG 4864 --- [http-nio-8082-exec-3] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds] keep-alive: timeout=60
-16:26:47:330 DEBUG 4864 --- [http-nio-8082-exec-3] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds] transfer-encoding: chunked
-16:26:47:331 DEBUG 4864 --- [http-nio-8082-exec-3] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds]
-16:26:47:332 DEBUG 4864 --- [http-nio-8082-exec-3] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds] [{"id":"5284203","name":"华为 HUAWEI Mate 10 6GB+128GB 香槟金 移动联通电信4G手机 双卡双待","price":429400,"stock":10000,"image":"https://m.360buyimg.com/mobilecms/s720x720_jfs/t10414/363/1280355182/335902/18c2b152/59ded64fNfdb4e9da.jpg!q70.jpg.webp","category":"手机","brand":"华为","spec":"{\"颜色\": \"槟色\", \"选择内存\": \"128GB\"}","sold":0,"commentCount":0,"isAD":false,"status":1}]
-16:26:47:332 DEBUG 4864 --- [http-nio-8082-exec-3] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds] <--- END HTTP (418-byte body)
+16:26:47:162 DEBUG 4864 --- [http-nio-8082-exec-3] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds] ---> GET http://item-service/items?ids=5284203 HTTP/1.1
+16:26:47:163 DEBUG 4864 --- [http-nio-8082-exec-3] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds] user-info: 1
+16:26:47:163 DEBUG 4864 --- [http-nio-8082-exec-3] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds] ---> END HTTP (0-byte body)
+16:26:47:330 DEBUG 4864 --- [http-nio-8082-exec-3] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds] <--- HTTP/1.1 200  (167ms)
+16:26:47:330 DEBUG 4864 --- [http-nio-8082-exec-3] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds] connection: keep-alive
+16:26:47:330 DEBUG 4864 --- [http-nio-8082-exec-3] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds] content-type: application/json
+16:26:47:330 DEBUG 4864 --- [http-nio-8082-exec-3] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds] date: Thu, 10 Oct 2024 08:26:47 GMT
+16:26:47:330 DEBUG 4864 --- [http-nio-8082-exec-3] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds] keep-alive: timeout=60
+16:26:47:330 DEBUG 4864 --- [http-nio-8082-exec-3] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds] transfer-encoding: chunked
+16:26:47:331 DEBUG 4864 --- [http-nio-8082-exec-3] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds]
+16:26:47:332 DEBUG 4864 --- [http-nio-8082-exec-3] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds] [{"id":"5284203","name":"华为 HUAWEI Mate 10 6GB+128GB 香槟金 移动联通电信4G手机 双卡双待","price":429400,"stock":10000,"image":"https://m.360buyimg.com/mobilecms/s720x720_jfs/t10414/363/1280355182/335902/18c2b152/59ded64fNfdb4e9da.jpg!q70.jpg.webp","category":"手机","brand":"华为","spec":"{\"颜色\": \"槟色\", \"选择内存\": \"128GB\"}","sold":0,"commentCount":0,"isAD":false,"status":1}]
+16:26:47:332 DEBUG 4864 --- [http-nio-8082-exec-3] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds] <--- END HTTP (418-byte body)
 16:26:47:830  INFO 4864 --- [nacos-grpc-client-executor-45] com.alibaba.nacos.common.remote.client   : [c10a5e80-373c-4735-aa8b-eab73fa5aad4] Receive server push request, request = NotifySubscriberRequest, requestId = 20
 16:26:47:830  INFO 4864 --- [nacos-grpc-client-executor-45] com.alibaba.nacos.common.remote.client   : [c10a5e80-373c-4735-aa8b-eab73fa5aad4] Ack server push request, request = NotifySubscriberRequest, requestId = 20
-16:26:53:837  INFO 4864 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.hmall.cart.listener.CartClearListener  : 监听到购物车清理消息：1
-16:26:53:850 DEBUG 4864 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] mapper.com.mall.cart.CartMapper.delete  : ==>  Preparing: DELETE FROM cart WHERE (user_id = ? AND item_id IN (?))
-16:26:53:851 DEBUG 4864 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] mapper.com.mall.cart.CartMapper.delete  : ==> Parameters: 1(Long), 5284203(Long)
-16:26:53:855 DEBUG 4864 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] mapper.com.mall.cart.CartMapper.delete  : <==    Updates: 1
+16:26:53:837  INFO 4864 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.mallall.cart.listener.CartClearListener  : 监听到购物车清理消息：1
+16:26:53:850 DEBUG 4864 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] mapper.com.lonelyash.cart.CartMapper.delete  : ==>  Preparing: DELETE FROM cart WHERE (user_id = ? AND item_id IN (?))
+16:26:53:851 DEBUG 4864 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] mapper.com.lonelyash.cart.CartMapper.delete  : ==> Parameters: 1(Long), 5284203(Long)
+16:26:53:855 DEBUG 4864 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] mapper.com.lonelyash.cart.CartMapper.delete  : <==    Updates: 1
 16:41:07:532 DEBUG 4864 --- [http-nio-8082-exec-5] c.h.cart.mapper.CartMapper.selectList    : ==>  Preparing: SELECT id,user_id,item_id,num,name,spec,price,image,create_time,update_time FROM cart WHERE (user_id = ?)
 16:41:07:534 DEBUG 4864 --- [http-nio-8082-exec-5] c.h.cart.mapper.CartMapper.selectList    : ==> Parameters: 1(Long)
 16:41:07:536 DEBUG 4864 --- [http-nio-8082-exec-5] c.h.cart.mapper.CartMapper.selectList    : <==      Total: 0
@@ -123,28 +123,28 @@
 16:41:12:509 DEBUG 4864 --- [http-nio-8082-exec-6] c.h.cart.mapper.CartMapper.selectCount   : ==>  Preparing: SELECT COUNT( * ) FROM cart WHERE (user_id = ?)
 16:41:12:509 DEBUG 4864 --- [http-nio-8082-exec-6] c.h.cart.mapper.CartMapper.selectCount   : ==> Parameters: 1(Long)
 16:41:12:511 DEBUG 4864 --- [http-nio-8082-exec-6] c.h.cart.mapper.CartMapper.selectCount   : <==      Total: 1
-16:41:12:512 DEBUG 4864 --- [http-nio-8082-exec-6] mapper.com.mall.cart.CartMapper.insert  : ==>  Preparing: INSERT INTO cart ( user_id, item_id, name, spec, price, image ) VALUES ( ?, ?, ?, ?, ?, ? )
-16:41:12:513 DEBUG 4864 --- [http-nio-8082-exec-6] mapper.com.mall.cart.CartMapper.insert  : ==> Parameters: 1(Long), 1713453(Long), 小鹿叮叮 超薄 成长裤 婴儿拉拉裤 男女学步通用尿不湿 大号L码84片【9-14kg】(String), {}(String), 12800(Integer), https://m.360buyimg.com/mobilecms/s720x720_jfs/t22591/39/1930198982/188975/7385556d/5b6d33bdNa455e2b0.jpg!q70.jpg.webp(String)
-16:41:12:519 DEBUG 4864 --- [http-nio-8082-exec-6] mapper.com.mall.cart.CartMapper.insert  : <==    Updates: 1
+16:41:12:512 DEBUG 4864 --- [http-nio-8082-exec-6] mapper.com.lonelyash.cart.CartMapper.insert  : ==>  Preparing: INSERT INTO cart ( user_id, item_id, name, spec, price, image ) VALUES ( ?, ?, ?, ?, ?, ? )
+16:41:12:513 DEBUG 4864 --- [http-nio-8082-exec-6] mapper.com.lonelyash.cart.CartMapper.insert  : ==> Parameters: 1(Long), 1713453(Long), 小鹿叮叮 超薄 成长裤 婴儿拉拉裤 男女学步通用尿不湿 大号L码84片【9-14kg】(String), {}(String), 12800(Integer), https://m.360buyimg.com/mobilecms/s720x720_jfs/t22591/39/1930198982/188975/7385556d/5b6d33bdNa455e2b0.jpg!q70.jpg.webp(String)
+16:41:12:519 DEBUG 4864 --- [http-nio-8082-exec-6] mapper.com.lonelyash.cart.CartMapper.insert  : <==    Updates: 1
 16:41:12:615 DEBUG 4864 --- [http-nio-8082-exec-7] c.h.cart.mapper.CartMapper.selectList    : ==>  Preparing: SELECT id,user_id,item_id,num,name,spec,price,image,create_time,update_time FROM cart WHERE (user_id = ?)
 16:41:12:616 DEBUG 4864 --- [http-nio-8082-exec-7] c.h.cart.mapper.CartMapper.selectList    : ==> Parameters: 1(Long)
 16:41:12:619 DEBUG 4864 --- [http-nio-8082-exec-7] c.h.cart.mapper.CartMapper.selectList    : <==      Total: 1
-16:41:12:621 DEBUG 4864 --- [http-nio-8082-exec-7] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds] ---> GET http://item-service/items?ids=1713453 HTTP/1.1
-16:41:12:621 DEBUG 4864 --- [http-nio-8082-exec-7] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds] user-info: 1
-16:41:12:621 DEBUG 4864 --- [http-nio-8082-exec-7] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds] ---> END HTTP (0-byte body)
-16:41:12:643 DEBUG 4864 --- [http-nio-8082-exec-7] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds] <--- HTTP/1.1 200  (21ms)
-16:41:12:643 DEBUG 4864 --- [http-nio-8082-exec-7] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds] connection: keep-alive
-16:41:12:643 DEBUG 4864 --- [http-nio-8082-exec-7] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds] content-type: application/json
-16:41:12:643 DEBUG 4864 --- [http-nio-8082-exec-7] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds] date: Thu, 10 Oct 2024 08:41:12 GMT
-16:41:12:643 DEBUG 4864 --- [http-nio-8082-exec-7] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds] keep-alive: timeout=60
-16:41:12:643 DEBUG 4864 --- [http-nio-8082-exec-7] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds] transfer-encoding: chunked
-16:41:12:643 DEBUG 4864 --- [http-nio-8082-exec-7] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds]
-16:41:12:643 DEBUG 4864 --- [http-nio-8082-exec-7] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds] [{"id":"1713453","name":"小鹿叮叮 超薄 成长裤 婴儿拉拉裤 男女学步通用尿不湿 大号L码84片【9-14kg】","price":12800,"stock":9998,"image":"https://m.360buyimg.com/mobilecms/s720x720_jfs/t22591/39/1930198982/188975/7385556d/5b6d33bdNa455e2b0.jpg!q70.jpg.webp","category":"拉拉裤","brand":"小鹿叮叮","spec":"{}","sold":0,"commentCount":0,"isAD":false,"status":1}]
-16:41:12:643 DEBUG 4864 --- [http-nio-8082-exec-7] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds] <--- END HTTP (393-byte body)
-16:41:16:365  INFO 4864 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.hmall.cart.listener.CartClearListener  : 监听到购物车清理消息：1
-16:41:16:367 DEBUG 4864 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] mapper.com.mall.cart.CartMapper.delete  : ==>  Preparing: DELETE FROM cart WHERE (user_id = ? AND item_id IN (?))
-16:41:16:368 DEBUG 4864 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] mapper.com.mall.cart.CartMapper.delete  : ==> Parameters: 1(Long), 1713453(Long)
-16:41:16:370 DEBUG 4864 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] mapper.com.mall.cart.CartMapper.delete  : <==    Updates: 1
+16:41:12:621 DEBUG 4864 --- [http-nio-8082-exec-7] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds] ---> GET http://item-service/items?ids=1713453 HTTP/1.1
+16:41:12:621 DEBUG 4864 --- [http-nio-8082-exec-7] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds] user-info: 1
+16:41:12:621 DEBUG 4864 --- [http-nio-8082-exec-7] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds] ---> END HTTP (0-byte body)
+16:41:12:643 DEBUG 4864 --- [http-nio-8082-exec-7] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds] <--- HTTP/1.1 200  (21ms)
+16:41:12:643 DEBUG 4864 --- [http-nio-8082-exec-7] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds] connection: keep-alive
+16:41:12:643 DEBUG 4864 --- [http-nio-8082-exec-7] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds] content-type: application/json
+16:41:12:643 DEBUG 4864 --- [http-nio-8082-exec-7] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds] date: Thu, 10 Oct 2024 08:41:12 GMT
+16:41:12:643 DEBUG 4864 --- [http-nio-8082-exec-7] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds] keep-alive: timeout=60
+16:41:12:643 DEBUG 4864 --- [http-nio-8082-exec-7] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds] transfer-encoding: chunked
+16:41:12:643 DEBUG 4864 --- [http-nio-8082-exec-7] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds]
+16:41:12:643 DEBUG 4864 --- [http-nio-8082-exec-7] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds] [{"id":"1713453","name":"小鹿叮叮 超薄 成长裤 婴儿拉拉裤 男女学步通用尿不湿 大号L码84片【9-14kg】","price":12800,"stock":9998,"image":"https://m.360buyimg.com/mobilecms/s720x720_jfs/t22591/39/1930198982/188975/7385556d/5b6d33bdNa455e2b0.jpg!q70.jpg.webp","category":"拉拉裤","brand":"小鹿叮叮","spec":"{}","sold":0,"commentCount":0,"isAD":false,"status":1}]
+16:41:12:643 DEBUG 4864 --- [http-nio-8082-exec-7] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds] <--- END HTTP (393-byte body)
+16:41:16:365  INFO 4864 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.mallall.cart.listener.CartClearListener  : 监听到购物车清理消息：1
+16:41:16:367 DEBUG 4864 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] mapper.com.lonelyash.cart.CartMapper.delete  : ==>  Preparing: DELETE FROM cart WHERE (user_id = ? AND item_id IN (?))
+16:41:16:368 DEBUG 4864 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] mapper.com.lonelyash.cart.CartMapper.delete  : ==> Parameters: 1(Long), 1713453(Long)
+16:41:16:370 DEBUG 4864 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] mapper.com.lonelyash.cart.CartMapper.delete  : <==    Updates: 1
 16:41:22:752 DEBUG 4864 --- [http-nio-8082-exec-8] c.h.cart.mapper.CartMapper.selectList    : ==>  Preparing: SELECT id,user_id,item_id,num,name,spec,price,image,create_time,update_time FROM cart WHERE (user_id = ?)
 16:41:22:753 DEBUG 4864 --- [http-nio-8082-exec-8] c.h.cart.mapper.CartMapper.selectList    : ==> Parameters: 1(Long)
 16:41:22:754 DEBUG 4864 --- [http-nio-8082-exec-8] c.h.cart.mapper.CartMapper.selectList    : <==      Total: 0
@@ -157,28 +157,28 @@
 16:45:00:511 DEBUG 4864 --- [http-nio-8082-exec-1] c.h.cart.mapper.CartMapper.selectCount   : ==>  Preparing: SELECT COUNT( * ) FROM cart WHERE (user_id = ?)
 16:45:00:512 DEBUG 4864 --- [http-nio-8082-exec-1] c.h.cart.mapper.CartMapper.selectCount   : ==> Parameters: 1(Long)
 16:45:00:515 DEBUG 4864 --- [http-nio-8082-exec-1] c.h.cart.mapper.CartMapper.selectCount   : <==      Total: 1
-16:45:00:517 DEBUG 4864 --- [http-nio-8082-exec-1] mapper.com.mall.cart.CartMapper.insert  : ==>  Preparing: INSERT INTO cart ( user_id, item_id, name, spec, price, image ) VALUES ( ?, ?, ?, ?, ?, ? )
-16:45:00:519 DEBUG 4864 --- [http-nio-8082-exec-1] mapper.com.mall.cart.CartMapper.insert  : ==> Parameters: 1(Long), 5706773(Long), 华为 HUAWEI Mate 10 Pro 全面屏徕卡双摄游戏手机 6GB+128GB 银钻灰 全网通移动联通电信4G手机 双卡双待(String), {"颜色": "银色", "选择内存": "128GB"}(String), 544000(Integer), https://m.360buyimg.com/mobilecms/s720x720_jfs/t11986/295/1484411523/155164/77795126/5a01503cN19d7f1a0.jpg!q70.jpg.webp(String)
-16:45:00:539 DEBUG 4864 --- [http-nio-8082-exec-1] mapper.com.mall.cart.CartMapper.insert  : <==    Updates: 1
+16:45:00:517 DEBUG 4864 --- [http-nio-8082-exec-1] mapper.com.lonelyash.cart.CartMapper.insert  : ==>  Preparing: INSERT INTO cart ( user_id, item_id, name, spec, price, image ) VALUES ( ?, ?, ?, ?, ?, ? )
+16:45:00:519 DEBUG 4864 --- [http-nio-8082-exec-1] mapper.com.lonelyash.cart.CartMapper.insert  : ==> Parameters: 1(Long), 5706773(Long), 华为 HUAWEI Mate 10 Pro 全面屏徕卡双摄游戏手机 6GB+128GB 银钻灰 全网通移动联通电信4G手机 双卡双待(String), {"颜色": "银色", "选择内存": "128GB"}(String), 544000(Integer), https://m.360buyimg.com/mobilecms/s720x720_jfs/t11986/295/1484411523/155164/77795126/5a01503cN19d7f1a0.jpg!q70.jpg.webp(String)
+16:45:00:539 DEBUG 4864 --- [http-nio-8082-exec-1] mapper.com.lonelyash.cart.CartMapper.insert  : <==    Updates: 1
 16:45:00:640 DEBUG 4864 --- [http-nio-8082-exec-2] c.h.cart.mapper.CartMapper.selectList    : ==>  Preparing: SELECT id,user_id,item_id,num,name,spec,price,image,create_time,update_time FROM cart WHERE (user_id = ?)
 16:45:00:641 DEBUG 4864 --- [http-nio-8082-exec-2] c.h.cart.mapper.CartMapper.selectList    : ==> Parameters: 1(Long)
 16:45:00:644 DEBUG 4864 --- [http-nio-8082-exec-2] c.h.cart.mapper.CartMapper.selectList    : <==      Total: 1
-16:45:00:645 DEBUG 4864 --- [http-nio-8082-exec-2] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds] ---> GET http://item-service/items?ids=5706773 HTTP/1.1
-16:45:00:645 DEBUG 4864 --- [http-nio-8082-exec-2] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds] user-info: 1
-16:45:00:645 DEBUG 4864 --- [http-nio-8082-exec-2] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds] ---> END HTTP (0-byte body)
-16:45:00:654 DEBUG 4864 --- [http-nio-8082-exec-2] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds] <--- HTTP/1.1 200  (9ms)
-16:45:00:654 DEBUG 4864 --- [http-nio-8082-exec-2] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds] connection: keep-alive
-16:45:00:654 DEBUG 4864 --- [http-nio-8082-exec-2] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds] content-type: application/json
-16:45:00:654 DEBUG 4864 --- [http-nio-8082-exec-2] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds] date: Thu, 10 Oct 2024 08:45:00 GMT
-16:45:00:654 DEBUG 4864 --- [http-nio-8082-exec-2] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds] keep-alive: timeout=60
-16:45:00:654 DEBUG 4864 --- [http-nio-8082-exec-2] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds] transfer-encoding: chunked
-16:45:00:654 DEBUG 4864 --- [http-nio-8082-exec-2] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds]
-16:45:00:654 DEBUG 4864 --- [http-nio-8082-exec-2] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds] [{"id":"5706773","name":"华为 HUAWEI Mate 10 Pro 全面屏徕卡双摄游戏手机 6GB+128GB 银钻灰 全网通移动联通电信4G手机 双卡双待","price":544000,"stock":9999,"image":"https://m.360buyimg.com/mobilecms/s720x720_jfs/t11986/295/1484411523/155164/77795126/5a01503cN19d7f1a0.jpg!q70.jpg.webp","category":"手机","brand":"华为","spec":"{\"颜色\": \"银色\", \"选择内存\": \"128GB\"}","sold":0,"commentCount":0,"isAD":false,"status":1}]
-16:45:00:654 DEBUG 4864 --- [http-nio-8082-exec-2] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds] <--- END HTTP (464-byte body)
-16:45:03:619  INFO 4864 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.hmall.cart.listener.CartClearListener  : 监听到购物车清理消息：1
-16:45:03:626 DEBUG 4864 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] mapper.com.mall.cart.CartMapper.delete  : ==>  Preparing: DELETE FROM cart WHERE (user_id = ? AND item_id IN (?))
-16:45:03:627 DEBUG 4864 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] mapper.com.mall.cart.CartMapper.delete  : ==> Parameters: 1(Long), 5706773(Long)
-16:45:03:630 DEBUG 4864 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] mapper.com.mall.cart.CartMapper.delete  : <==    Updates: 1
+16:45:00:645 DEBUG 4864 --- [http-nio-8082-exec-2] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds] ---> GET http://item-service/items?ids=5706773 HTTP/1.1
+16:45:00:645 DEBUG 4864 --- [http-nio-8082-exec-2] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds] user-info: 1
+16:45:00:645 DEBUG 4864 --- [http-nio-8082-exec-2] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds] ---> END HTTP (0-byte body)
+16:45:00:654 DEBUG 4864 --- [http-nio-8082-exec-2] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds] <--- HTTP/1.1 200  (9ms)
+16:45:00:654 DEBUG 4864 --- [http-nio-8082-exec-2] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds] connection: keep-alive
+16:45:00:654 DEBUG 4864 --- [http-nio-8082-exec-2] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds] content-type: application/json
+16:45:00:654 DEBUG 4864 --- [http-nio-8082-exec-2] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds] date: Thu, 10 Oct 2024 08:45:00 GMT
+16:45:00:654 DEBUG 4864 --- [http-nio-8082-exec-2] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds] keep-alive: timeout=60
+16:45:00:654 DEBUG 4864 --- [http-nio-8082-exec-2] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds] transfer-encoding: chunked
+16:45:00:654 DEBUG 4864 --- [http-nio-8082-exec-2] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds]
+16:45:00:654 DEBUG 4864 --- [http-nio-8082-exec-2] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds] [{"id":"5706773","name":"华为 HUAWEI Mate 10 Pro 全面屏徕卡双摄游戏手机 6GB+128GB 银钻灰 全网通移动联通电信4G手机 双卡双待","price":544000,"stock":9999,"image":"https://m.360buyimg.com/mobilecms/s720x720_jfs/t11986/295/1484411523/155164/77795126/5a01503cN19d7f1a0.jpg!q70.jpg.webp","category":"手机","brand":"华为","spec":"{\"颜色\": \"银色\", \"选择内存\": \"128GB\"}","sold":0,"commentCount":0,"isAD":false,"status":1}]
+16:45:00:654 DEBUG 4864 --- [http-nio-8082-exec-2] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds] <--- END HTTP (464-byte body)
+16:45:03:619  INFO 4864 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.mallall.cart.listener.CartClearListener  : 监听到购物车清理消息：1
+16:45:03:626 DEBUG 4864 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] mapper.com.lonelyash.cart.CartMapper.delete  : ==>  Preparing: DELETE FROM cart WHERE (user_id = ? AND item_id IN (?))
+16:45:03:627 DEBUG 4864 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] mapper.com.lonelyash.cart.CartMapper.delete  : ==> Parameters: 1(Long), 5706773(Long)
+16:45:03:630 DEBUG 4864 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] mapper.com.lonelyash.cart.CartMapper.delete  : <==    Updates: 1
 16:47:04:751 DEBUG 4864 --- [http-nio-8082-exec-4] c.h.cart.mapper.CartMapper.selectList    : ==>  Preparing: SELECT id,user_id,item_id,num,name,spec,price,image,create_time,update_time FROM cart WHERE (user_id = ?)
 16:47:04:752 DEBUG 4864 --- [http-nio-8082-exec-4] c.h.cart.mapper.CartMapper.selectList    : ==> Parameters: 1(Long)
 16:47:04:753 DEBUG 4864 --- [http-nio-8082-exec-4] c.h.cart.mapper.CartMapper.selectList    : <==      Total: 0
@@ -188,28 +188,28 @@
 16:47:07:772 DEBUG 4864 --- [http-nio-8082-exec-5] c.h.cart.mapper.CartMapper.selectCount   : ==>  Preparing: SELECT COUNT( * ) FROM cart WHERE (user_id = ?)
 16:47:07:773 DEBUG 4864 --- [http-nio-8082-exec-5] c.h.cart.mapper.CartMapper.selectCount   : ==> Parameters: 1(Long)
 16:47:07:777 DEBUG 4864 --- [http-nio-8082-exec-5] c.h.cart.mapper.CartMapper.selectCount   : <==      Total: 1
-16:47:07:779 DEBUG 4864 --- [http-nio-8082-exec-5] mapper.com.mall.cart.CartMapper.insert  : ==>  Preparing: INSERT INTO cart ( user_id, item_id, name, spec, price, image ) VALUES ( ?, ?, ?, ?, ?, ? )
-16:47:07:779 DEBUG 4864 --- [http-nio-8082-exec-5] mapper.com.mall.cart.CartMapper.insert  : ==> Parameters: 1(Long), 3072507(Long), 飞利浦 65POD901C/T3 65英寸 OLED曲面 三边流光溢彩金属超薄机身4K超高清智能液晶电视机（PHILIPS）(String), {"版本": "65英寸"}(String), 368800(Integer), https://m.360buyimg.com/mobilecms/s720x720_jfs/t1/5966/19/11913/209097/5bd13c30Ea76804a8/6faec86cea020dd0.jpg!q70.jpg.webp(String)
-16:47:07:785 DEBUG 4864 --- [http-nio-8082-exec-5] mapper.com.mall.cart.CartMapper.insert  : <==    Updates: 1
+16:47:07:779 DEBUG 4864 --- [http-nio-8082-exec-5] mapper.com.lonelyash.cart.CartMapper.insert  : ==>  Preparing: INSERT INTO cart ( user_id, item_id, name, spec, price, image ) VALUES ( ?, ?, ?, ?, ?, ? )
+16:47:07:779 DEBUG 4864 --- [http-nio-8082-exec-5] mapper.com.lonelyash.cart.CartMapper.insert  : ==> Parameters: 1(Long), 3072507(Long), 飞利浦 65POD901C/T3 65英寸 OLED曲面 三边流光溢彩金属超薄机身4K超高清智能液晶电视机（PHILIPS）(String), {"版本": "65英寸"}(String), 368800(Integer), https://m.360buyimg.com/mobilecms/s720x720_jfs/t1/5966/19/11913/209097/5bd13c30Ea76804a8/6faec86cea020dd0.jpg!q70.jpg.webp(String)
+16:47:07:785 DEBUG 4864 --- [http-nio-8082-exec-5] mapper.com.lonelyash.cart.CartMapper.insert  : <==    Updates: 1
 16:47:07:863 DEBUG 4864 --- [http-nio-8082-exec-6] c.h.cart.mapper.CartMapper.selectList    : ==>  Preparing: SELECT id,user_id,item_id,num,name,spec,price,image,create_time,update_time FROM cart WHERE (user_id = ?)
 16:47:07:864 DEBUG 4864 --- [http-nio-8082-exec-6] c.h.cart.mapper.CartMapper.selectList    : ==> Parameters: 1(Long)
 16:47:07:867 DEBUG 4864 --- [http-nio-8082-exec-6] c.h.cart.mapper.CartMapper.selectList    : <==      Total: 1
-16:47:07:869 DEBUG 4864 --- [http-nio-8082-exec-6] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds] ---> GET http://item-service/items?ids=3072507 HTTP/1.1
-16:47:07:870 DEBUG 4864 --- [http-nio-8082-exec-6] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds] user-info: 1
-16:47:07:870 DEBUG 4864 --- [http-nio-8082-exec-6] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds] ---> END HTTP (0-byte body)
-16:47:07:886 DEBUG 4864 --- [http-nio-8082-exec-6] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds] <--- HTTP/1.1 200  (15ms)
-16:47:07:886 DEBUG 4864 --- [http-nio-8082-exec-6] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds] connection: keep-alive
-16:47:07:886 DEBUG 4864 --- [http-nio-8082-exec-6] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds] content-type: application/json
-16:47:07:886 DEBUG 4864 --- [http-nio-8082-exec-6] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds] date: Thu, 10 Oct 2024 08:47:07 GMT
-16:47:07:886 DEBUG 4864 --- [http-nio-8082-exec-6] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds] keep-alive: timeout=60
-16:47:07:886 DEBUG 4864 --- [http-nio-8082-exec-6] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds] transfer-encoding: chunked
-16:47:07:886 DEBUG 4864 --- [http-nio-8082-exec-6] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds]
-16:47:07:886 DEBUG 4864 --- [http-nio-8082-exec-6] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds] [{"id":"3072507","name":"飞利浦 65POD901C/T3 65英寸 OLED曲面 三边流光溢彩金属超薄机身4K超高清智能液晶电视机（PHILIPS）","price":368800,"stock":9997,"image":"https://m.360buyimg.com/mobilecms/s720x720_jfs/t1/5966/19/11913/209097/5bd13c30Ea76804a8/6faec86cea020dd0.jpg!q70.jpg.webp","category":"曲面电视","brand":"飞利浦","spec":"{\"版本\": \"65英寸\"}","sold":0,"commentCount":0,"isAD":false,"status":1}]
-16:47:07:886 DEBUG 4864 --- [http-nio-8082-exec-6] client.com.mall.api.ItemClient          : [ItemClient#queryItemByIds] <--- END HTTP (445-byte body)
-16:47:10:197  INFO 4864 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.hmall.cart.listener.CartClearListener  : 监听到购物车清理消息：1
-16:47:10:199 DEBUG 4864 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] mapper.com.mall.cart.CartMapper.delete  : ==>  Preparing: DELETE FROM cart WHERE (user_id = ? AND item_id IN (?))
-16:47:10:199 DEBUG 4864 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] mapper.com.mall.cart.CartMapper.delete  : ==> Parameters: 1(Long), 3072507(Long)
-16:47:10:201 DEBUG 4864 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] mapper.com.mall.cart.CartMapper.delete  : <==    Updates: 1
+16:47:07:869 DEBUG 4864 --- [http-nio-8082-exec-6] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds] ---> GET http://item-service/items?ids=3072507 HTTP/1.1
+16:47:07:870 DEBUG 4864 --- [http-nio-8082-exec-6] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds] user-info: 1
+16:47:07:870 DEBUG 4864 --- [http-nio-8082-exec-6] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds] ---> END HTTP (0-byte body)
+16:47:07:886 DEBUG 4864 --- [http-nio-8082-exec-6] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds] <--- HTTP/1.1 200  (15ms)
+16:47:07:886 DEBUG 4864 --- [http-nio-8082-exec-6] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds] connection: keep-alive
+16:47:07:886 DEBUG 4864 --- [http-nio-8082-exec-6] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds] content-type: application/json
+16:47:07:886 DEBUG 4864 --- [http-nio-8082-exec-6] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds] date: Thu, 10 Oct 2024 08:47:07 GMT
+16:47:07:886 DEBUG 4864 --- [http-nio-8082-exec-6] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds] keep-alive: timeout=60
+16:47:07:886 DEBUG 4864 --- [http-nio-8082-exec-6] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds] transfer-encoding: chunked
+16:47:07:886 DEBUG 4864 --- [http-nio-8082-exec-6] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds]
+16:47:07:886 DEBUG 4864 --- [http-nio-8082-exec-6] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds] [{"id":"3072507","name":"飞利浦 65POD901C/T3 65英寸 OLED曲面 三边流光溢彩金属超薄机身4K超高清智能液晶电视机（PHILIPS）","price":368800,"stock":9997,"image":"https://m.360buyimg.com/mobilecms/s720x720_jfs/t1/5966/19/11913/209097/5bd13c30Ea76804a8/6faec86cea020dd0.jpg!q70.jpg.webp","category":"曲面电视","brand":"飞利浦","spec":"{\"版本\": \"65英寸\"}","sold":0,"commentCount":0,"isAD":false,"status":1}]
+16:47:07:886 DEBUG 4864 --- [http-nio-8082-exec-6] client.com.lonelyash.api.ItemClient          : [ItemClient#queryItemByIds] <--- END HTTP (445-byte body)
+16:47:10:197  INFO 4864 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.mallall.cart.listener.CartClearListener  : 监听到购物车清理消息：1
+16:47:10:199 DEBUG 4864 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] mapper.com.lonelyash.cart.CartMapper.delete  : ==>  Preparing: DELETE FROM cart WHERE (user_id = ? AND item_id IN (?))
+16:47:10:199 DEBUG 4864 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] mapper.com.lonelyash.cart.CartMapper.delete  : ==> Parameters: 1(Long), 3072507(Long)
+16:47:10:201 DEBUG 4864 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] mapper.com.lonelyash.cart.CartMapper.delete  : <==    Updates: 1
 16:49:53:435  WARN 4864 --- [Thread-1] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
 16:49:53:436  WARN 4864 --- [Thread-5] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
 16:49:53:436  WARN 4864 --- [Thread-5] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end

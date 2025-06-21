@@ -1,4 +1,4 @@
-package com.mall.config;
+package com.lonelyash.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -6,7 +6,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import java.util.List;
 
 @Data
-@ConfigurationProperties(prefix = "hm.auth")
+@ConfigurationProperties(prefix = "mall.auth")
 public class AuthProperties {
     private List<String> includePaths;
     private List<String> excludePaths;

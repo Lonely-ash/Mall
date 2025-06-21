@@ -1,5 +1,5 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.mall.common.config.MyBatisConfig,\
-  com.mall.common.config.MvcConfig,\
-  com.mall.common.config.MqConfig,\
-  com.mall.common.config.JsonConfig
+  com.lonelyash.common.config.MyBatisConfig,\
+  com.lonelyash.common.config.MvcConfig,\
+  com.lonelyash.common.config.MqConfig,\
+  com.lonelyash.common.config.JsonConfig

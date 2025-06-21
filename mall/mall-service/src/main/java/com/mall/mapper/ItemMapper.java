@@ -1,8 +1,8 @@
-package com.mall.mapper;
+package com.lonelyash.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.mall.domain.dto.OrderDetailDTO;
-import com.mall.domain.po.Item;
+import com.lonelyash.domain.dto.OrderDetailDTO;
+import com.lonelyash.domain.po.Item;
 import org.apache.ibatis.annotations.Update;
 
 /**
