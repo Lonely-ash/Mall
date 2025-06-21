@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mall.item.mapper.ItemMapper">
+
+    <!-- 商品详情与评论结果映射 -->
+    <resultMap id="itemDetailMap" type="com.mall.item.domain.dto.ItemDetailDTO">
+        <!-- 商品基础字段 -->
+        <id property="id" column="item_id"/>
+        <result property="name" column="item_name"/>
+        <result property="price" column="item_price"/>
+
+        <!-- 评论列表映射 -->
+        <collection property="comments"
+                    ofType="com.mall.item.domain.dto.ItemDetailDTO$CommentDetail">
+            <result property="content" column="comment_content"/>
+            <result property="userId" column="user_id"/>
+            <result property="username" column="username"/>
+            <result property="createTime" column="create_time"/>
+            <result property="likes" column="likes"/>
+        </collection>
+    </resultMap>
+
+    <!-- 查询商品详情及评论列表 -->
+    <select id="getItemDetail" resultMap="itemDetailMap">
+        SELECT
+            i.id AS item_id,
+            i.name AS item_name,
+            i.price AS item_price,
+
+            c.content AS comment_content,
+            c.user_id,
+            u.username,
+            c.likes
+
+        FROM `hm-item`.item AS i
+                 LEFT JOIN `hm-item`.comment AS c ON i.id = c.item_id
+                 LEFT JOIN `hm-user`.user AS u ON c.user_id = u.id
+        WHERE i.id = #{itemId}
+    </select>
+
+</mapper>
