@@ -23,20 +23,20 @@
 
     <!-- 查询商品详情及评论列表 -->
     <select id="getItemDetail" resultMap="itemDetailMap">
-        SELECT
-            i.id AS item_id,
-            i.name AS item_name,
-            i.price AS item_price,
-
-            c.content AS comment_content,
-            c.user_id,
-            u.username,
-            c.likes
-
-        FROM `mall-item`.item AS i
-                 LEFT JOIN `mall-item`.comment AS c ON i.id = c.item_id
-                 LEFT JOIN `mall-user`.user AS u ON c.user_id = u.id
-        WHERE i.id = #{itemId}
+#         SELECT
+#             i.id AS item_id,
+#             i.name AS item_name,
+#             i.price AS item_price,
+#
+#             c.content AS comment_content,
+#             c.user_id,
+#             u.username,
+#             c.likes
+#
+#         FROM `mall-item`.item AS i
+#                  LEFT JOIN `mall-item`.comment AS c ON i.id = c.item_id
+#                  LEFT JOIN `mall-user`.user AS u ON c.user_id = u.id
+#         WHERE i.id = #{itemId}
     </select>
 
 </mapper>

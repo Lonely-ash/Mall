@@ -1,16 +1,18 @@
-spring:
+﻿spring:
+  config:
+    import: optional:file:///E:/Java_Program/Idea/mall/config.yml
   application:
-    name: cart-service # 服务名称
+    name: cart-service
   profiles:
     active: dev
   cloud:
     nacos:
-      server-addr: 192.168.229.129 # nacos地址
+      server-addr: ${mall.nacos.server-addr:192.168.230.211:8848}
       config:
-        file-extension: yaml # 文件后缀名
-        shared-configs: # 共享配置
-          - dataId: shared-jdbc.yaml # 共享mybatis配置
-          - dataId: shared-log.yaml # 共享日志配置
-          - dataId: shared-swagger.yaml # 共享日志配置
-          - dataId: shared-seata.yaml
-          - dataId: shared-mq.yaml
+        file-extension: yaml
+        shared-configs:
+          - data-id: jdbc.yaml
+          - data-id: log.yaml
+          - data-id: swagger.yaml
+          - data-id: seata.yaml
+          - data-id: mq.yaml

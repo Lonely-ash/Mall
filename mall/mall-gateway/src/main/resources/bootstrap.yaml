@@ -1,36 +1,76 @@
-spring:
+﻿spring:
+  config:
+    import: optional:file:///E:/Java_Program/Idea/mall/config.yml
   application:
-    name: gateway # 微服务名称
+    name: gateway
   profiles:
     active: dev
   cloud:
     nacos:
-      server-addr: 192.168.1.100:8848
+      server-addr: ${mall.nacos.server-addr:192.168.230.211:8848}
       config:
         file-extension: yaml
         shared-configs:
-          - data-id: shared-log.yaml
+          - data-id: log.yaml
     gateway:
       routes:
-         - id: item-service
-           uri: lb://item-service
-           predicates:
-             - Path=/items/**,/search/**
-               # 用户服务路由配置
-         - id: user-service
-           uri: lb://user-service
-           predicates:
-              - Path=/addresses/**,/users/**
-               # 购物车服务路由配置
-         - id: cart-service
-           uri: lb://cart-service
-           predicates:
-              - Path=/carts/**
-         - id: trade-service
-           uri: lb://trade-service
-           predicates:
-             - Path=/orders/**
-         - id: pay-service
-           uri: lb://pay-service
-           predicates:
-             - Path=/pay-orders/**
+        - id: item-service
+          uri: lb://item-service
+          predicates:
+            - Path=/items/**,/search/**
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/addresses/**,/users/**
+        - id: cart-service
+          uri: lb://cart-service
+          predicates:
+            - Path=/carts/**
+        - id: trade-service
+          uri: lb://trade-service
+          predicates:
+            - Path=/orders/**
+        - id: pay-service
+          uri: lb://pay-service
+          predicates:
+            - Path=/pay-orders/**
+        - id: doc-ui
+          uri: http://localhost:8089
+          predicates:
+            - Path=/doc.html,/webjars/**,/swagger-ui.html
+        - id: doc-mall-service
+          uri: http://localhost:8089
+          predicates:
+            - Path=/mall/v2/api-docs,/mall/v2/api-docs-ext
+          filters:
+            - StripPrefix=1
+        - id: doc-user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/user/v2/api-docs,/user/v2/api-docs-ext
+          filters:
+            - StripPrefix=1
+        - id: doc-item-service
+          uri: lb://item-service
+          predicates:
+            - Path=/item/v2/api-docs,/item/v2/api-docs-ext
+          filters:
+            - StripPrefix=1
+        - id: doc-cart-service
+          uri: lb://cart-service
+          predicates:
+            - Path=/cart/v2/api-docs,/cart/v2/api-docs-ext
+          filters:
+            - StripPrefix=1
+        - id: doc-trade-service
+          uri: lb://trade-service
+          predicates:
+            - Path=/trade/v2/api-docs,/trade/v2/api-docs-ext
+          filters:
+            - StripPrefix=1
+        - id: doc-pay-service
+          uri: lb://pay-service
+          predicates:
+            - Path=/pay/v2/api-docs,/pay/v2/api-docs-ext
+          filters:
+            - StripPrefix=1

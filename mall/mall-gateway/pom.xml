@@ -22,6 +22,12 @@
             <groupId>com.lonelyash</groupId>
             <artifactId>mall-common</artifactId>
             <version>1.0.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.github.xiaoymin</groupId>
+                    <artifactId>knife4j-openapi2-spring-boot-starter</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <!--网关-->
         <dependency>

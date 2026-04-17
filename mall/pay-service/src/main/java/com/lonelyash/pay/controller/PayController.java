@@ -27,9 +27,12 @@ public class PayController {
 
     @ApiOperation("生成支付单")
     @PostMapping
-    public String applyPayOrder(@RequestBody PayApplyDTO applyDTO){
-        if(!PayType.BALANCE.equalsValue(applyDTO.getPayType())){
-            // 目前只支持余额支付
+    public String applyPayOrder(@RequestBody PayApplyDTO applyDTO) {
+        // 双保险：如果前端明确传了余额渠道，则强制按余额支付类型处理。
+        if ("balance".equalsIgnoreCase(applyDTO.getPayChannelCode())) {
+            applyDTO.setPayType(PayType.BALANCE.getValue());
+        }
+        if (!PayType.BALANCE.equalsValue(applyDTO.getPayType())) {
             throw new BizIllegalException("抱歉，目前只支持余额支付");
         }
         return payOrderService.applyPayOrder(applyDTO);
@@ -38,20 +41,20 @@ public class PayController {
     @ApiOperation("尝试基于用户余额支付")
     @ApiImplicitParam(value = "支付单id", name = "id")
     @PostMapping("{id}")
-    public void tryPayOrderByBalance(@PathVariable("id") Long id, @RequestBody PayOrderFormDTO payOrderFormDTO){
+    public void tryPayOrderByBalance(@PathVariable("id") Long id, @RequestBody PayOrderFormDTO payOrderFormDTO) {
         payOrderFormDTO.setId(id);
         payOrderService.tryPayOrderByBalance(payOrderFormDTO);
     }
 
     @ApiOperation("查询支付单")
     @GetMapping
-    public List<PayOrderVO> queryPayOrders(){
+    public List<PayOrderVO> queryPayOrders() {
         return BeanUtils.copyList(payOrderService.list(), PayOrderVO.class);
     }
 
-    @ApiOperation("根据id查询支付单")
+    @ApiOperation("根据业务订单id查询支付单")
     @GetMapping("/biz/{id}")
-    public PayOrderDTO queryPayOrderByBizOrderNo(@PathVariable("id") Long id){
+    public PayOrderDTO queryPayOrderByBizOrderNo(@PathVariable("id") Long id) {
         PayOrder payOrder = payOrderService.lambdaQuery().eq(PayOrder::getBizOrderNo, id).one();
         return BeanUtils.copyBean(payOrder, PayOrderDTO.class);
     }

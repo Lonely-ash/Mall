@@ -27,7 +27,7 @@ public class JwtTool {
      * @return access-token
      */
     public String createToken(Long userId, Duration ttl) {
-        // 1.生成jws
+        // 1.生成jwt
         return JWT.create()
                 .setPayload("user", userId)
                 .setExpiresAt(new Date(System.currentTimeMillis() + ttl.toMillis()))

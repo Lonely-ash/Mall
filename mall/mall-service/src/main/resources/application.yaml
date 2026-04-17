@@ -1,15 +1,17 @@
-server:
-  port: 8080
 spring:
+  config:
+    import: file:///E:/Java_Program/Idea/mall/config.yml
   application:
     name: mall-service
   profiles:
     active: dev
   datasource:
-    url: jdbc:mysql://${mall.db.host}:3306/mallall?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://${mall.db.host}:3306/mall?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: ${mall.db.pw}
+server:
+  port: 8089
 mybatis-plus:
   configuration:
     default-enum-type-handler: com.baomidou.mybatisplus.core.handlers.MybatisEnumTypeHandler
@@ -27,10 +29,10 @@ logging:
 knife4j:
   enable: true
   openapi:
-    title: 黑马商城接口文档
-    description: "黑马商城接口文档"
+    title: 商城接口文档
+    description: "商城接口文档"
     email: zhanghuyi@itcast.cn
-    concat: 虎哥
+    concat: LonelyAsh
     url: https://www.itcast.cn
     version: v1.0.0
     group:
@@ -38,12 +40,13 @@ knife4j:
         group-name: default
         api-rule: package
         api-rule-resources:
-          - com.lonelyashall.controller
+          - com.lonelyash.controller
 mall:
   jwt:
-    location: classpath:mallall.jks
-    alias: mallall
-    password: mallall123
+    location: classpath:mall.jks
+    alias: mall
+    password: 123456
+    keyPassword: 123456
     tokenTTL: 30m
   auth:
     excludePaths:
@@ -51,4 +54,4 @@ mall:
       - /users/login
       - /items/**
       - /hi
-# keytool -genkeypair -alias mall -keyalg RSA -keypass mallall123 -keystore mall.jks -storepass mallall123
+# keytool -genkeypair -alias mall -keyalg RSA -keypass 123456 -keystore mall.jks -storepass 123456

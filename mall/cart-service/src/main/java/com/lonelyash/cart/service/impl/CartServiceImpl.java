@@ -28,67 +28,66 @@ import java.util.stream.Collectors;
 
 /**
  * <p>
- * 订单详情表 服务实现类
+ * 璁㈠崟璇︽儏琛?鏈嶅姟瀹炵幇绫?
  * </p>
  *
- * @author 虎哥
+ * @author 铏庡摜
  * @since 2023-05-05
  */
 @Service
 @RequiredArgsConstructor
 public class CartServiceImpl extends ServiceImpl<CartMapper, Cart> implements ICartService {
 
-//    private final RestTemplate restTemplate;
-//
+
 //    private final DiscoveryClient discoveryClient;
     private final ItemClient itemClient;
     private final CartProperties cartProperties;
 
     @Override
     public void addItem2Cart(CartFormDTO cartFormDTO) {
-        // 1.获取登录用户
+        // 1.鑾峰彇鐧诲綍鐢ㄦ埛
         Long userId = UserContext.getUser();
 
-        // 2.判断是否已经存在
+        // 2.鍒ゆ柇鏄惁宸茬粡瀛樺湪
         if(checkItemExists(cartFormDTO.getItemId(), userId)){
-            // 2.1.存在，则更新数量
+            // 2.1.瀛樺湪锛屽垯鏇存柊鏁伴噺
             baseMapper.updateNum(cartFormDTO.getItemId(), userId);
             return;
         }
-        // 2.2.不存在，判断是否超过购物车数量
+        // 2.2.涓嶅瓨鍦紝鍒ゆ柇鏄惁瓒呰繃璐墿杞︽暟閲?
         checkCartsFull(userId);
 
-        // 3.新增购物车条目
-        // 3.1.转换PO
+        // 3.鏂板璐墿杞︽潯鐩?
+        // 3.1.杞崲PO
         Cart cart = BeanUtils.copyBean(cartFormDTO, Cart.class);
-        // 3.2.保存当前用户
+        // 3.2.淇濆瓨褰撳墠鐢ㄦ埛
         cart.setUserId(userId);
-        // 3.3.保存到数据库
+        // 3.3.淇濆瓨鍒版暟鎹簱
         save(cart);
     }
 
     @Override
     public List<CartVO> queryMyCarts() {
-        // 1.查询我的购物车列表
+        // 1.鏌ヨ鎴戠殑璐墿杞﹀垪琛?
         List<Cart> carts = lambdaQuery().eq(Cart::getUserId, UserContext.getUser()).list();
         if (CollUtils.isEmpty(carts)) {
             return CollUtils.emptyList();
         }
 
-        // 2.转换VO
+        // 2.杞崲VO
         List<CartVO> vos = BeanUtils.copyList(carts, CartVO.class);
 
-        // 3.处理VO中的商品信息
+        // 3.澶勭悊VO涓殑鍟嗗搧淇℃伅
         handleCartItems(vos);
 
-        // 4.返回
+        // 4.杩斿洖
         return vos;
     }
 
     private void handleCartItems(List<CartVO> vos) {
-        // TODO 1.获取商品id
+        // TODO 1.鑾峰彇鍟嗗搧id
         Set<Long> itemIds = vos.stream().map(CartVO::getItemId).collect(Collectors.toSet());
-        // 2.查询商品
+        // 2.鏌ヨ鍟嗗搧
 //        List<ServiceInstance> instances = discoveryClient.getInstances("item-service");
 //
 //        ServiceInstance instance = instances.get(RandomUtil.randomInt(instances.size()));
@@ -104,12 +103,12 @@ public class CartServiceImpl extends ServiceImpl<CartMapper, Cart> implements IC
 //        List<ItemDTO> items = null;
 //        if(response.getStatusCode().is2xxSuccessful()){items = response.getBody();}
 //        if(CollUtils.isEmpty(items)){
-//            throw new BadRequestException("购物车中商品不存在");
+//            throw new BadRequestException("璐墿杞︿腑鍟嗗搧涓嶅瓨鍦?);
 //        }
         List<ItemDTO> items = itemClient.queryItemByIds(itemIds);
-        // 3.转为 id 到 item的map
+        // 3.杞负 id 鍒?item鐨刴ap
         Map<Long, ItemDTO> itemMap = items.stream().collect(Collectors.toMap(ItemDTO::getId, Function.identity()));
-        // 4.写入vo
+        // 4.鍐欏叆vo
         for (CartVO v : vos) {
             ItemDTO item = itemMap.get(v.getItemId());
             if (item == null) {
@@ -124,27 +123,29 @@ public class CartServiceImpl extends ServiceImpl<CartMapper, Cart> implements IC
     @Override
     @Transactional
     public void removeByItemIds(Collection<Long> itemIds) {
-        // 1.构建删除条件，userId和itemId
+        // 1.鏋勫缓鍒犻櫎鏉′欢锛寀serId鍜宨temId
         QueryWrapper<Cart> queryWrapper = new QueryWrapper<Cart>();
         queryWrapper.lambda()
                 .eq(Cart::getUserId, UserContext.getUser())
                 .in(Cart::getItemId, itemIds);
-        // 2.删除
+        // 2.鍒犻櫎
         remove(queryWrapper);
     }
 
     private void checkCartsFull(Long userId) {
-        int count = lambdaQuery().eq(Cart::getUserId, userId).count();
-        if (count >= cartProperties.getMaxAmount()) {
-            throw new BizIllegalException(StrUtil.format("用户购物车课程不能超过{}", cartProperties.getMaxAmount()));
+        int count = Math.toIntExact(lambdaQuery().eq(Cart::getUserId, userId).count());
+        int maxAmount = cartProperties.getMaxAmount() == null ? 100 : cartProperties.getMaxAmount();
+        if (count >= maxAmount) {
+            throw new BizIllegalException(StrUtil.format("用户购物车条目不能超过{}", maxAmount));
         }
     }
 
     private boolean checkItemExists(Long itemId, Long userId) {
-        int count = lambdaQuery()
+        int count = Math.toIntExact(lambdaQuery()
                 .eq(Cart::getUserId, userId)
                 .eq(Cart::getItemId, itemId)
-                .count();
+                .count());
         return count > 0;
     }
 }
+

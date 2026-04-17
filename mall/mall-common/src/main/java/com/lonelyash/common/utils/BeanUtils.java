@@ -7,6 +7,11 @@ import java.util.stream.Collectors;
 
 /**
  * 继承自 hutool 的BeanUtil，增加了bean转换时自定义转换器的功能
+ * Hutool 的 BeanUtil 的增强扩展，主要解决对象复制（Bean Copy）中的两个核心问题：
+ *
+ * 基础对象复制：通过 copyBean() 实现同名属性的浅拷贝（基于 Hutool 的 toBean() 方法）。
+ * 差异化字段处理：通过 Convert 接口支持自定义转换逻辑，处理字段类型/名称不匹配、复杂计算等场景。
+ * 批量复制优化：提供 copyList() 方法简化集合对象的转换，避免手动循环
  */
 public class BeanUtils extends BeanUtil {
 

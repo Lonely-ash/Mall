@@ -13,6 +13,8 @@ import java.math.BigInteger;
 @ConditionalOnClass(ObjectMapper.class)
 public class JsonConfig {
     @Bean
+    //将long和biginteger都转换为string再序列化，防止精度丢失
+    //Jackson2ObjectMapperBuilderCustomizer 使用 Jackson 库将消息体序列化为 JSON（发送端）并反序列化为对象（接收端）
     public Jackson2ObjectMapperBuilderCustomizer jackson2ObjectMapperBuilderCustomizer() {
         return jacksonObjectMapperBuilder -> {
             // long -> string

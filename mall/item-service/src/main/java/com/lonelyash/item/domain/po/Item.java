@@ -11,14 +11,7 @@ import lombok.experimental.Accessors;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-/**
- * <p>
- * 商品表
- * </p>
- *
- * @author 虎哥
- * @since 2023-05-05
- */
+
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
@@ -79,7 +72,7 @@ public class Item implements Serializable {
     private Integer commentCount;
 
     /**
-     * 是否是推广广告，true/false
+     * 是否是推广广告
      */
     @TableField("isAD")
     private Boolean isAD;

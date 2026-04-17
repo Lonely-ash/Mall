@@ -61,7 +61,7 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered {
                 .request(builder -> builder.header("user-info", userInfo))
                 .build();
         // 6.放行
-        return chain.filter(exchange);
+        return chain.filter(swe);
     }
 
     private boolean isExclude(String antPath) {

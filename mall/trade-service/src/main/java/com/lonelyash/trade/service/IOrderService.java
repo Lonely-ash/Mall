@@ -1,17 +1,12 @@
 package com.lonelyash.trade.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.lonelyash.common.domain.PageDTO;
 import com.lonelyash.trade.domain.dto.OrderFormDTO;
 import com.lonelyash.trade.domain.po.Order;
+import com.lonelyash.trade.domain.query.OrderPageQuery;
+import com.lonelyash.trade.domain.vo.OrderVO;
 
-/**
- * <p>
- *  服务类
- * </p>
- *
- * @author 虎哥
- * @since 2023-05-05
- */
 public interface IOrderService extends IService<Order> {
 
     Long createOrder(OrderFormDTO orderFormDTO);
@@ -19,4 +14,12 @@ public interface IOrderService extends IService<Order> {
     void markOrderPaySuccess(Long orderId);
 
     void cancleOrder(Long orderId);
+
+    OrderVO queryOrderById(Long orderId);
+
+    PageDTO<OrderVO> queryMyOrders(OrderPageQuery query);
+
+    PageDTO<OrderVO> queryOrders(OrderPageQuery query);
+
+    void updateOrderStatus(Long orderId, Integer status);
 }

@@ -11,6 +11,8 @@ mall:
     package: com.lonelyash.cart.controller
   db:
     database: mall-cart
+  cart:
+    maxAmount: 100
 spring:
   cloud:
     sentinel:

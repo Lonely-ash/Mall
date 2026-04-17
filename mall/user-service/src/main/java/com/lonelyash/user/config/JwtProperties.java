@@ -11,6 +11,7 @@ import java.time.Duration;
 public class JwtProperties {
     private Resource location;
     private String password;
+    private String keyPassword;
     private String alias;
     private Duration tokenTTL = Duration.ofMinutes(10);
 }

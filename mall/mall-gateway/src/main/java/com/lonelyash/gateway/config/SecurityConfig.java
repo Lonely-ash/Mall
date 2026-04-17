@@ -14,20 +14,22 @@ import java.security.KeyPair;
 public class SecurityConfig {
 
     @Bean
-    public PasswordEncoder passwordEncoder(){
+    public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
     @Bean
-    public KeyPair keyPair(JwtProperties properties){
-        // 获取秘钥工厂
+    public KeyPair keyPair(JwtProperties properties) {
+        String keyPassword = properties.getKeyPassword();
+        if (keyPassword == null || keyPassword.isEmpty()) {
+            keyPassword = properties.getPassword();
+        }
         KeyStoreKeyFactory keyStoreKeyFactory =
                 new KeyStoreKeyFactory(
                         properties.getLocation(),
                         properties.getPassword().toCharArray());
-        //读取钥匙对
         return keyStoreKeyFactory.getKeyPair(
                 properties.getAlias(),
-                properties.getPassword().toCharArray());
+                keyPassword.toCharArray());
     }
 }

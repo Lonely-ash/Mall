@@ -1,5 +1,7 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.lonelyash.common.config.ExceptionConfig,\
   com.lonelyash.common.config.MyBatisConfig,\
   com.lonelyash.common.config.MvcConfig,\
+  com.lonelyash.common.config.SwaggerConfig,\
   com.lonelyash.common.config.MqConfig,\
   com.lonelyash.common.config.JsonConfig

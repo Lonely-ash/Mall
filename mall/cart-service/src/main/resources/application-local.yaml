@@ -1,4 +1,23 @@
-mall:
-  db:
-    host: 192.168.229.129
-    pw: 1234
+spring:
+  config:
+    import: optional:file:///E:/Java_Program/Idea/mall/config.yml
+  datasource:
+    url: jdbc:mysql://${mall.db.host}:3306/${mall.db.database}?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: ${mall.db.pw}
+seata:
+  tx-service-group: ${mall.seata.tx-service-group}
+  registry:
+    type: nacos
+    nacos:
+      server-addr: ${mall.nacos.server-addr}
+      group: DEFAULT_GROUP
+      application: seata-server
+      username: nacos
+      password: nacos
+  service:
+    vgroup-mapping:
+      mall: ${mall.seata.cluster}
+    grouplist:
+      default: ${mall.seata.server-addr}

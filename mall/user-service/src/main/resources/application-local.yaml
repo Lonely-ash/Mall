@@ -1,4 +1,1 @@
-mall:
-  db:
-    host: 192.168.1.100
-    pw: 123
+# local profile reuses the shared root config file

@@ -1,16 +1,24 @@
 package com.lonelyash.trade.service.impl;
 
+import cn.hutool.core.util.ObjectUtil;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.lonelyash.api.client.CartClient;
 import com.lonelyash.api.client.ItemClient;
 import com.lonelyash.api.dto.ItemDTO;
 import com.lonelyash.api.dto.OrderDetailDTO;
+import com.lonelyash.common.domain.PageDTO;
 import com.lonelyash.common.exception.BadRequestException;
+import com.lonelyash.common.exception.BizIllegalException;
+import com.lonelyash.common.exception.ForbiddenException;
+import com.lonelyash.common.utils.BeanUtils;
 import com.lonelyash.common.utils.UserContext;
 import com.lonelyash.trade.constants.MQConstants;
 import com.lonelyash.trade.domain.dto.OrderFormDTO;
 import com.lonelyash.trade.domain.po.Order;
 import com.lonelyash.trade.domain.po.OrderDetail;
+import com.lonelyash.trade.domain.query.OrderPageQuery;
+import com.lonelyash.trade.domain.vo.OrderVO;
 import com.lonelyash.trade.mapper.OrderMapper;
 import com.lonelyash.trade.service.IOrderDetailService;
 import com.lonelyash.trade.service.IOrderService;
@@ -27,18 +35,12 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-/**
- * <p>
- * 服务实现类
- * </p>
- *
- * @author 虎哥
- * @since 2023-05-05
- */
 @Service
 @Slf4j
 @RequiredArgsConstructor
 public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements IOrderService {
+
+    private static final Long ADMIN_USER_ID = 1L;
 
     private final ItemClient itemClient;
     private final IOrderDetailService detailService;
@@ -48,55 +50,59 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
     @Override
     @GlobalTransactional
     public Long createOrder(OrderFormDTO orderFormDTO) {
-        // 1.订单数据
-        Order order = new Order();
-        // 1.1.查询商品
         List<OrderDetailDTO> detailDTOS = orderFormDTO.getDetails();
-        // 1.2.获取商品id和数量的Map
+        if (detailDTOS == null || detailDTOS.isEmpty()) {
+            throw new BadRequestException("订单明细不能为空");
+        }
+
         Map<Long, Integer> itemNumMap = detailDTOS.stream()
                 .collect(Collectors.toMap(OrderDetailDTO::getItemId, OrderDetailDTO::getNum));
         Set<Long> itemIds = itemNumMap.keySet();
-        // 1.3.查询商品
+
         List<ItemDTO> items = itemClient.queryItemByIds(itemIds);
         if (items == null || items.size() < itemIds.size()) {
             throw new BadRequestException("商品不存在");
         }
-        // 1.4.基于商品价格、购买数量计算商品总价：totalFee
+
+        for (ItemDTO item : items) {
+            Integer buyNum = itemNumMap.get(item.getId());
+            if (item.getStatus() == null || item.getStatus() != 1) {
+                throw new BizIllegalException("商品已下架: " + item.getName());
+            }
+            if (item.getStock() == null || item.getStock() < buyNum) {
+                throw new BizIllegalException("库存不足: " + item.getName());
+            }
+        }
+
         int total = 0;
         for (ItemDTO item : items) {
             total += item.getPrice() * itemNumMap.get(item.getId());
         }
+
+        Order order = new Order();
         order.setTotalFee(total);
-        // 1.5.其它属性
         order.setPaymentType(orderFormDTO.getPaymentType());
         order.setUserId(UserContext.getUser());
         order.setStatus(1);
-        // 1.6.将Order写入数据库order表中
         save(order);
 
-        // 2.保存订单详情
         List<OrderDetail> details = buildDetails(order.getId(), items, itemNumMap);
         detailService.saveBatch(details);
 
-        // 3.清理购物车商品
-        //cartClient.removeByItemIds(itemIds);
         try {
-            rabbitTemplate.convertAndSend("trade.topic", "order.create", itemIds,
-                    message -> {
-                        Long userId = UserContext.getUser();
-                        log.info("清理购物车消息发送成功，用户id:{}", userId);
-                        message.getMessageProperties().setHeader("userId",userId);
-                        return message;
-                    });
-        }catch (Exception e){
-            log.error("购物车清理失败:{}",e);
+            rabbitTemplate.convertAndSend("trade.topic", "order.create", itemIds, message -> {
+                Long userId = UserContext.getUser();
+                message.getMessageProperties().setHeader("userId", userId);
+                return message;
+            });
+        } catch (Exception e) {
+            log.error("cart clear message send failed", e);
         }
 
-        // 4.扣减库存
         try {
             itemClient.deductStock(detailDTOS);
         } catch (Exception e) {
-            throw new RuntimeException("库存不足！");
+            throw new BizIllegalException("扣减库存失败: " + e.getMessage(), e);
         }
 
         rabbitTemplate.convertAndSend(
@@ -108,6 +114,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
                     return message;
                 }
         );
+
         return order.getId();
     }
 
@@ -122,7 +129,70 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
 
     @Override
     public void cancleOrder(Long orderId) {
+    }
 
+    @Override
+    public OrderVO queryOrderById(Long orderId) {
+        Order order = getById(orderId);
+        if (order == null) {
+            throw new BadRequestException("订单不存在");
+        }
+        Long currentUser = UserContext.getUser();
+        if (!ObjectUtil.equal(order.getUserId(), currentUser) && !isAdmin()) {
+            throw new ForbiddenException("无权访问该订单");
+        }
+        return BeanUtils.copyBean(order, OrderVO.class);
+    }
+
+    @Override
+    public PageDTO<OrderVO> queryMyOrders(OrderPageQuery query) {
+        Long currentUser = UserContext.getUser();
+        Page<Order> page = lambdaQuery()
+                .eq(Order::getUserId, currentUser)
+                .eq(query.getStatus() != null, Order::getStatus, query.getStatus())
+                .page(query.toMpPage("create_time", false));
+        return PageDTO.of(page, OrderVO.class);
+    }
+
+    @Override
+    public PageDTO<OrderVO> queryOrders(OrderPageQuery query) {
+        if (!isAdmin()) {
+            throw new ForbiddenException("无管理员权限");
+        }
+        Page<Order> page = lambdaQuery()
+                .eq(query.getUserId() != null, Order::getUserId, query.getUserId())
+                .eq(query.getStatus() != null, Order::getStatus, query.getStatus())
+                .page(query.toMpPage("create_time", false));
+        return PageDTO.of(page, OrderVO.class);
+    }
+
+    @Override
+    public void updateOrderStatus(Long orderId, Integer status) {
+        if (!isAdmin()) {
+            throw new ForbiddenException("无管理员权限");
+        }
+        Order old = getById(orderId);
+        if (old == null) {
+            throw new BadRequestException("订单不存在");
+        }
+
+        Order update = new Order();
+        update.setId(orderId);
+        update.setStatus(status);
+        if (ObjectUtil.equal(status, 3)) {
+            update.setConsignTime(LocalDateTime.now());
+        }
+        if (ObjectUtil.equal(status, 4)) {
+            update.setEndTime(LocalDateTime.now());
+        }
+        if (ObjectUtil.equal(status, 5)) {
+            update.setCloseTime(LocalDateTime.now());
+        }
+        updateById(update);
+    }
+
+    private boolean isAdmin() {
+        return ObjectUtil.equal(UserContext.getUser(), ADMIN_USER_ID);
     }
 
     private List<OrderDetail> buildDetails(Long orderId, List<ItemDTO> items, Map<Long, Integer> numMap) {

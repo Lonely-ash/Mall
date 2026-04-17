@@ -8,5 +8,8 @@ import org.springframework.stereotype.Component;
 @Component
 @ConfigurationProperties(prefix = "mall.cart")
 public class CartProperties {
-    private Integer maxAmount;
+    /**
+     * 单个用户购物车最大条目数，配置缺失时使用默认值。
+     */
+    private Integer maxAmount = 100;
 }

@@ -1,0 +1,38 @@
+import http from './http'
+
+export const apiLogin = (payload) => http.post('/users/login', payload)
+export const apiRegister = (payload) => http.post('/users/register', payload)
+export const apiGetMe = () => http.get('/users/me')
+export const apiUpdateMe = (payload) => http.put('/users/me', payload)
+export const apiGetUsersByPage = (params) => http.get('/users/page', { params })
+export const apiUpdateUserStatus = (id, status) => http.put(`/users/${id}/status/${status}`)
+
+export const apiSearchItems = (params) => http.get('/search/list', { params })
+export const apiGetItemsByPage = (params) => http.get('/items/page', { params })
+export const apiGetItemsByAdminPage = (params) => http.get('/items/page/admin', { params })
+export const apiGetItemById = (id) => http.get(`/items/${id}`)
+export const apiCreateItem = (payload) => http.post('/items', payload)
+export const apiUpdateItem = (payload) => http.put('/items', payload)
+export const apiUpdateItemStatus = (id, status) => http.put(`/items/status/${id}/${status}`)
+export const apiDeleteItem = (id) => http.delete(`/items/${id}`)
+export const apiGetCategories = () => http.get('/items/categories')
+
+export const apiGetCarts = () => http.get('/carts')
+export const apiAddCart = (payload) => http.post('/carts', payload)
+export const apiUpdateCart = (payload) => http.put('/carts', payload)
+export const apiDeleteCart = (id) => http.delete(`/carts/${id}`)
+
+export const apiGetAddresses = () => http.get('/addresses')
+export const apiCreateAddress = (payload) => http.post('/addresses', payload)
+export const apiUpdateAddress = (id, payload) => http.put(`/addresses/${id}`, payload)
+export const apiDeleteAddress = (id) => http.delete(`/addresses/${id}`)
+export const apiSetDefaultAddress = (id) => http.put(`/addresses/${id}/default`)
+
+export const apiCreateOrder = (payload) => http.post('/orders', payload)
+export const apiGetOrder = (id) => http.get(`/orders/${id}`)
+export const apiGetMyOrders = (params) => http.get('/orders/page/my', { params })
+export const apiGetOrdersByPage = (params) => http.get('/orders/page', { params })
+export const apiUpdateOrderStatus = (id, status) => http.put(`/orders/${id}/status/${status}`)
+export const apiApplyPayOrder = (payload) => http.post('/pay-orders', payload)
+export const apiPayByBalance = (payOrderId, payload) => http.post(`/pay-orders/${payOrderId}`, payload)
+export const apiGetPayOrderByBizOrderNo = (orderId) => http.get(`/pay-orders/biz/${orderId}`)

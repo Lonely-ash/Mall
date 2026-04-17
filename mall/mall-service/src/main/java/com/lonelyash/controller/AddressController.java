@@ -58,4 +58,11 @@ public class AddressController {
         // 3.转vo
         return BeanUtils.copyList(list, AddressDTO.class);
     }
+
+
+    @GetMapping("/{id}")
+    public String queryById(@PathVariable("id") Long id) {
+        String address = addressService.selectById(id);
+        return BeanUtils.copyBean(address, AddressDTO.class).toString();
+    }
 }
